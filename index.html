@@ -77,7 +77,7 @@
 <body>
     <!-- Preloader -->
     <div id="preloader">
-        <img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" class="preloader-logo">
+        <img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" width="116" height="72" class="preloader-logo">
     </div>
 
     <!-- Scroll Progress -->
@@ -85,7 +85,7 @@
     <nav class="navbar">
                 <div class="nav-left">
             <a href="/" class="nav-logo" style="display: flex; align-items: center;">
-                <img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" style="height: 72px; width: auto; border-radius: 8px;">
+                <img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" width="116" height="72" style="height: 72px; width: auto; border-radius: 8px;">
             </a>
         </div>
         
@@ -112,13 +112,13 @@
 
         <div class="nav-right">
             <a href="/appointment.html" class="btn btn-primary">Book Appointment <i class="fas fa-angle-double-right" style="margin-left: 6px; font-size: 0.8rem;"></i></a>
-            <button class="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            <button class="hamburger" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay">
-        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <button class="mobile-menu-close" aria-label="Close Menu"><i class="fas fa-times"></i></button>
         <a href="/">Home</a>
         <a href="/about.html">About</a>
         <a href="/doctors.html">Our Doctors</a>
@@ -456,13 +456,13 @@
                     <div class="wa-form-card">
                         <form id="whatsappForm">
                             <div class="form-grp">
-                                <input type="text" id="pat-name" placeholder="Your full name" required>
+                                <input type="text" id="pat-name" placeholder="Your full name" required aria-label="Your full name">
                             </div>
                             <div class="form-grp">
-                                <input type="tel" id="pat-phone" placeholder="Your WhatsApp number (10 digits)" pattern="[0-9]{10}" title="Please enter exactly 10 digits" maxlength="10" minlength="10" required>
+                                <input type="tel" id="pat-phone" placeholder="Your WhatsApp number (10 digits)" pattern="[0-9]{10}" title="Please enter exactly 10 digits" maxlength="10" minlength="10" required aria-label="Your WhatsApp number">
                             </div>
                             <div class="form-grp">
-                                <select id="pref-doc">
+                                <select id="pref-doc" aria-label="Preferred Doctor">
                                     <option value="Any Doctor">Any Available Doctor</option>
                                     <option value="Dr. Balaji">Dr. Balaji Velayutham</option>
                                     <option value="Dr. Eswar">Dr. E. Eswar</option>
@@ -473,7 +473,7 @@
                                 </select>
                             </div>
                             <div class="form-grp">
-                                <select id="pref-treat">
+                                <select id="pref-treat" aria-label="Preferred Treatment">
                                     <option value="Checkup">General Checkup</option>
                                     <option value="Dental Implants">Dental Implants</option>
                                     <option value="Laser Dentistry">Laser Dentistry</option>
@@ -496,11 +496,11 @@
                                 <label><input type="radio" name="session" value="Evening"> Evening</label>
                             </div>
                             <div class="form-grp">
-                                <input type="date" id="pref-date" required>
+                                <input type="date" id="pref-date" required aria-label="Preferred Date">
                             </div>
                             <div class="form-grp" style="margin-bottom: 20px; text-align: left;">
                                 <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer; font-size: 0.85rem; color: var(--text); line-height: 1.4;">
-                                    <input type="checkbox" required style="width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0;"> 
+                                    <input type="checkbox" required style="width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0;" aria-label="Accept Privacy Policy"> 
                                     <span>I accept the <a href="/privacy-policy.html" style="color: var(--primary); text-decoration: underline;" target="_blank">Privacy Policy</a> and <a href="/terms-conditions.html" style="color: var(--primary); text-decoration: underline;" target="_blank">Terms & Conditions</a>.</span>
                                 </label>
                             </div>
@@ -543,7 +543,7 @@
     <footer>
         <div class="footer-top">
             <div class="footer-col footer-brand">
-                <a href="/" class="nav-logo" style="display: flex; align-items: center;"><img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" style="height: 48px; width: auto; border-radius: 8px;"></a>
+                <a href="/" class="nav-logo" style="display: flex; align-items: center;"><img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" width="116" height="72" style="height: 48px; width: auto; border-radius: 8px;"></a>
                 <div style="color: var(--mid-blue); font-size: 0.9rem; margin-top: 5px; margin-bottom: 20px;">Healthy Smiles for Every Individual</div>
                 <div style="font-size: 0.85rem; margin-bottom: 15px;">Anna Nagar Bus Stop, Next to BRS Super Market, Nanjikottai Road, Thanjavur – 613006</div>
                 <a href="tel:+919894888736" style="color: var(--mid-blue); display: block; margin-bottom: 5px;">9894888736</a>
@@ -590,8 +590,8 @@
     </footer>
 
     <!-- FABs -->
-    <a href="https://api.whatsapp.com/send?phone=919894888736&text=Hello%20Vels%20Dental%20Clinic!" target="_blank" class="wa-fab" title="Book via WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <button class="back-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+    <a href="https://api.whatsapp.com/send?phone=919894888736&text=Hello%20Vels%20Dental%20Clinic!" target="_blank" class="wa-fab" title="Book via WhatsApp" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <button class="back-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></button>
 
     <!-- Mobile Sticky Bar -->
     <div class="mobile-sticky-bar">

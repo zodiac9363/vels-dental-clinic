@@ -22,7 +22,7 @@ footer = footer_match.group(1) if footer_match else ""
 
 privacy_content = f"""{header}
     <div class="mobile-menu-overlay">
-        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <button class="mobile-menu-close" aria-label="Close Menu"><i class="fas fa-times"></i></button>
         <a href="/">Home</a><a href="/about.html">About</a><a href="/doctors.html">Our Doctors</a>
         <a href="/services/index.html">Services</a><a href="/contact.html">Contact</a>
         <a href="/appointment.html" class="btn btn-primary" style="color:var(--white);">Book Appointment</a>
@@ -43,7 +43,7 @@ privacy_content = f"""{header}
                 <div class="inter" style="line-height: 1.7; color: var(--text);">
                     <p style="margin-bottom: 16px;">Welcome to Vels Dental Clinic. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our clinic or use our website.</p>
                     
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">1. Information We Collect</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">1. Information We Collect</h2>
                     <p style="margin-bottom: 16px;">We may collect personal information that you voluntarily provide to us when booking an appointment or contacting us, including:</p>
                     <ul style="margin-bottom: 16px; padding-left: 20px;">
                         <li style="margin-bottom: 8px;">Name, Phone Number, and Email Address.</li>
@@ -51,7 +51,7 @@ privacy_content = f"""{header}
                         <li style="margin-bottom: 8px;">Any other information you choose to provide via WhatsApp or phone.</li>
                     </ul>
 
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">2. How We Use Your Information</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">2. How We Use Your Information</h2>
                     <p style="margin-bottom: 16px;">The information we collect is used strictly for:</p>
                     <ul style="margin-bottom: 16px; padding-left: 20px;">
                         <li style="margin-bottom: 8px;">Scheduling and managing your dental appointments.</li>
@@ -59,13 +59,13 @@ privacy_content = f"""{header}
                         <li style="margin-bottom: 8px;">Communicating with you regarding appointment reminders or follow-up care.</li>
                     </ul>
 
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">3. Data Security</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">3. Data Security</h2>
                     <p style="margin-bottom: 16px;">We implement appropriate technical and organizational security measures designed to protect the security of any personal information we process. Your medical records are kept strictly confidential.</p>
 
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">4. Sharing Your Information</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">4. Sharing Your Information</h2>
                     <p style="margin-bottom: 16px;">We do not sell, trade, or rent your personal identification information to others. We will only share your information with third parties when legally required or with specialist doctors referred with your explicit consent.</p>
 
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">5. Contact Us</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">5. Contact Us</h2>
                     <p style="margin-bottom: 16px;">If you have questions or comments about this notice, you may email us or contact us at:</p>
                     <p style="margin-bottom: 16px;"><strong>Vels Dental Clinic</strong><br>Anna Nagar Bus Stop, Nanjikottai Road<br>Thanjavur, Tamil Nadu 613006<br>Phone: 9894888736</p>
                 </div>
@@ -76,7 +76,7 @@ privacy_content = f"""{header}
 
 terms_content = f"""{header}
     <div class="mobile-menu-overlay">
-        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <button class="mobile-menu-close" aria-label="Close Menu"><i class="fas fa-times"></i></button>
         <a href="/">Home</a><a href="/about.html">About</a><a href="/doctors.html">Our Doctors</a>
         <a href="/services/index.html">Services</a><a href="/contact.html">Contact</a>
         <a href="/appointment.html" class="btn btn-primary" style="color:var(--white);">Book Appointment</a>
@@ -97,19 +97,19 @@ terms_content = f"""{header}
                 <div class="inter" style="line-height: 1.7; color: var(--text);">
                     <p style="margin-bottom: 16px;">By accessing and using the Vels Dental Clinic website, you agree to be bound by the following terms and conditions. If you do not agree to these terms, please do not use our website.</p>
                     
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">1. Medical Disclaimer</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">1. Medical Disclaimer</h2>
                     <p style="margin-bottom: 16px;">The content provided on this website is for informational purposes only and is not a substitute for professional medical or dental advice, diagnosis, or treatment. Always seek the advice of your dentist or other qualified health provider with any questions you may have regarding a dental condition.</p>
 
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">2. Appointments & Cancellations</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">2. Appointments & Cancellations</h2>
                     <p style="margin-bottom: 16px;">When you book an appointment via our website or WhatsApp, your time slot is reserved exclusively for you. We kindly request at least 24 hours' notice if you need to cancel or reschedule your appointment so that we may offer the time to another patient.</p>
 
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">3. Intellectual Property</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">3. Intellectual Property</h2>
                     <p style="margin-bottom: 16px;">All content on this website, including text, graphics, logos, and images, is the property of Vels Dental Clinic and is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works from this content without our express written permission.</p>
 
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">4. Limitation of Liability</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">4. Limitation of Liability</h2>
                     <p style="margin-bottom: 16px;">Vels Dental Clinic shall not be liable for any direct, indirect, incidental, or consequential damages arising out of your use or inability to use this website or the information contained herein.</p>
 
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">5. Changes to Terms</h3>
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px;">5. Changes to Terms</h2>
                     <p style="margin-bottom: 16px;">We reserve the right to modify these terms at any time. Any changes will be posted on this page, and your continued use of the website constitutes your acceptance of the revised terms.</p>
                 </div>
             </div>

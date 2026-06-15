@@ -11,7 +11,7 @@
   --navy:          #0D2B33;
   --navy-deep:     #051317;
   --text:          #1A1A1A;
-  --muted:         #6B7280;
+  --muted:         #555F6D;
   --whatsapp:      #25D366;
 }
 
@@ -534,6 +534,7 @@ details.faq-row[open] summary::after { content: '−'; }
 .wa-form-card { background: var(--white); border-radius: 12px; padding: 24px; border: 1px solid var(--mid-blue); }
 .form-grp { margin-bottom: 16px; }
 .form-grp input, .form-grp select, .form-grp textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--mid-blue); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--navy); background-color: var(--white); box-sizing: border-box; outline: none; transition: border-color 0.2s; }
+.form-grp input::placeholder, .form-grp select::placeholder, .form-grp textarea::placeholder { color: #555F6D; opacity: 1; }
 .form-grp input:focus, .form-grp select:focus, .form-grp textarea:focus { border-color: var(--primary); }
 .form-grp select {
     appearance: none;

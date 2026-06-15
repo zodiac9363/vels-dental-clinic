@@ -101,7 +101,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKB7S3JN1B"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
 
       gtag('config', 'G-ZKB7S3JN1B');
@@ -161,7 +161,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body class="bg-white">\n<nav class="navbar">
         <div class="nav-left">
             <a href="/" class="nav-logo" style="display: flex; align-items: center;">
-                <img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" style="height: 72px; width: auto; border-radius: 8px;">
+                <img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" width="116" height="72" style="height: 72px; width: auto; border-radius: 8px;">
             </a>
         </div>
         <div class="nav-center nav-links">
@@ -173,11 +173,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </div>
         <div class="nav-right">
             <a href="/appointment.html" class="btn btn-primary">Book Appointment <i class="fas fa-angle-double-right" style="margin-left: 6px;"></i></a>
-            <button class="hamburger"><i class="fas fa-bars"></i></button>
+            <button class="hamburger" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
     <div class="mobile-menu-overlay">
-        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <button class="mobile-menu-close" aria-label="Close Menu"><i class="fas fa-times"></i></button>
         <a href="/">Home</a><a href="/about.html">About</a><a href="/doctors.html">Our Doctors</a>
         <a href="/services/index.html">Services</a><a href="/contact.html">Contact</a>
         <a href="/appointment.html" class="btn btn-primary" style="color:var(--white);">Book Appointment</a>
@@ -365,8 +365,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div class="giant-wordmark">VELS DENTAL</div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=919894888736&text=Hello%20Vels%20Dental%20Clinic!" target="_blank" class="wa-fab"><i class="fab fa-whatsapp"></i></a>
-    <button class="back-top"><i class="fas fa-chevron-up"></i></button>
+    <a href="https://api.whatsapp.com/send?phone=919894888736&text=Hello%20Vels%20Dental%20Clinic!" target="_blank" class="wa-fab" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <button class="back-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></button>
     <div class="mobile-sticky-bar">
         <a href="tel:+919894888736"><i class="fas fa-phone"></i> Call</a>
         <a href="https://api.whatsapp.com/send?phone=919894888736" target="_blank"><i class="fab fa-whatsapp" style="color:var(--whatsapp);"></i> WhatsApp</a>
