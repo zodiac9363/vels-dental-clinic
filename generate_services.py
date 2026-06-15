@@ -1,0 +1,393 @@
+import os
+
+SERVICES = [
+    {
+        "id": "dental-implants",
+        "name": "Dental Implants",
+        "description": "Permanent, natural-looking replacements for missing teeth using advanced titanium fixtures.",
+        "icon": "tooth",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "laser-dentistry",
+        "name": "Laser Dentistry",
+        "description": "Painless, minimally invasive treatments for gums, cavities, and soft tissues using advanced lasers.",
+        "icon": "magic",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "orthodontics",
+        "name": "Orthodontics",
+        "description": "Straighten your teeth with modern metal, ceramic braces, or clear aligners like Invisalign.",
+        "icon": "teeth",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "periodontics",
+        "name": "Periodontics",
+        "description": "Comprehensive gum disease treatment, flap surgeries, and bone grafting to save your natural teeth.",
+        "icon": "teeth-open",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "oral-surgery",
+        "name": "Oral Surgery",
+        "description": "Expert wisdom tooth extractions, minor jaw surgeries, and pathology treatments.",
+        "icon": "syringe",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "cosmetic-dentistry",
+        "name": "Cosmetic Dentistry",
+        "description": "Complete smile makeovers including veneers, laminates, and aesthetic contouring.",
+        "icon": "smile-beam",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "root-canal",
+        "name": "Root Canal Treatment",
+        "description": "Save severely infected or decayed teeth with our painless, single-visit root canal therapy.",
+        "icon": "band-aid",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "pediatric-dentistry",
+        "name": "Pediatric Dentistry",
+        "description": "Gentle, fear-free dental care designed specifically for infants, children, and teens.",
+        "icon": "child",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "teeth-whitening",
+        "name": "Teeth Whitening",
+        "description": "Professional laser teeth whitening to brighten your smile by several shades in just one hour.",
+        "icon": "sparkles",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "scaling-cleaning",
+        "name": "Scaling & Cleaning",
+        "description": "Professional ultrasonic cleaning to remove stubborn plaque, tartar, and coffee/tea stains.",
+        "icon": "spray-can",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "tooth-fillings",
+        "name": "Tooth Fillings",
+        "description": "Tooth-colored composite fillings that restore cavities invisibly and durably.",
+        "icon": "fill-drip",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "extractions",
+        "name": "Tooth Extractions",
+        "description": "Safe, painless removal of irreparably damaged or decayed teeth.",
+        "icon": "x-ray",
+        "schema_type": "MedicalProcedure"
+    },
+    {
+        "id": "digital-dentistry",
+        "name": "Digital Dentistry",
+        "description": "3D diagnostics, digital scanning, and precision-guided treatment planning.",
+        "icon": "microchip",
+        "schema_type": "MedicalProcedure"
+    }
+]
+
+HTML_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://velsdental.in/services/{id}.html">
+    <meta property="og:title" content="{name} in Thanjavur | Vels Dental Clinic">
+    <meta name="description" content="{description}"> <meta property="og:description" content="{description}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vels Dental Clinic Thanjavur">
+    <title>{name} in Thanjavur | Vels Dental Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script type="application/ld+json">
+    [
+      {{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://velsdental.in"}},
+          {{"@type": "ListItem", "position": 2, "name": "Services", "item": "https://velsdental.in/services/index.html"}},
+          {{"@type": "ListItem", "position": 3, "name": "{name}", "item": "https://velsdental.in/services/{id}.html"}}
+        ]
+      }},
+      {{
+        "@context": "https://schema.org",
+        "@type": "MedicalProcedure",
+        "name": "{name}",
+        "description": "{description}",
+        "provider": {{"@type": "Dentist", "name": "Vels Dental Clinic", "url": "https://velsdental.in"}}
+      }},
+      {{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {{
+            "@type": "Question",
+            "name": "Is {name} painful?",
+            "acceptedAnswer": {{"@type": "Answer", "text": "No. We use advanced techniques and local anesthesia to ensure your complete comfort during {name}."}}
+          }},
+          {{
+            "@type": "Question",
+            "name": "How much does {name} cost in Thanjavur?",
+            "acceptedAnswer": {{"@type": "Answer", "text": "The cost of {name} varies depending on individual cases. Please schedule a consultation with our experts for a detailed and transparent treatment plan."}}
+          }}
+        ]
+      }}
+    ]
+    </script>
+</head>
+<body class="bg-white">\n<nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="nav-logo" style="display: flex; align-items: center;">
+                <img src="/assets/images/logo.webp" alt="Vels Dental Clinic Logo" style="height: 72px; width: auto; border-radius: 8px;">
+            </a>
+        </div>
+        <div class="nav-center nav-links">
+            <div class="nav-item"><a href="/" class="nav-link">Home</a></div>
+            <div class="nav-item"><a href="/about.html" class="nav-link">About</a></div>
+            <div class="nav-item"><a href="/doctors.html" class="nav-link">Our Doctors</a></div>
+            <div class="nav-item"><a href="/services/index.html" class="nav-link active">Services</a></div>
+            <div class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></div>
+        </div>
+        <div class="nav-right">
+            <a href="/appointment.html" class="btn btn-primary">Book Appointment <i class="fas fa-angle-double-right" style="margin-left: 6px;"></i></a>
+            <button class="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu-overlay">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <a href="/">Home</a><a href="/about.html">About</a><a href="/doctors.html">Our Doctors</a>
+        <a href="/services/index.html">Services</a><a href="/contact.html">Contact</a>
+        <a href="/appointment.html" class="btn btn-primary" style="color:var(--white);">Book Appointment</a>
+    </div>
+
+    <main>
+        <div class="breadcrumb-wrap">
+            <div class="container breadcrumb">
+                <ol><li><a href="/">Home</a></li><li><a href="/services/index.html">Services</a></li><li>{name}</li></ol>
+            </div>
+        </div>
+
+        <section class="section-pad reveal">
+            <div class="container service-hero">
+                <div>
+                    <span class="eyebrow-pill" style="margin-bottom: 16px;">Specialized Treatment</span>
+                    <h1 class="inter">{name}</h1>
+                    <p class="inter" style="color: var(--muted); font-size: 1.1rem; margin-bottom: 24px; max-width: 500px;">{description}</p>
+                    <a href="/appointment.html?treatment={name}" class="btn btn-primary">Book Appointment <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+                </div>
+                <div style="background: url('/assets/images/{id}.webp?v=2') center / cover no-repeat; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.06); height: 350px;">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad bg-white reveal">
+            <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                <div>
+                    <h2 class="inter" style="font-size: 2rem; font-weight: 700; margin-bottom: 16px;">What is {name}?</h2>
+                    <p class="inter" style="color: var(--muted); line-height: 1.7; margin-bottom: 16px;">At Vels Dental Clinic, {name} is performed using state-of-the-art equipment to ensure precise, effective, and long-lasting results. Whether restoring function or improving aesthetics, our experienced specialists customize this treatment exactly to your clinical needs.</p>
+                    <p class="inter" style="color: var(--muted); line-height: 1.7;">Our focus remains on patient comfort, utilizing the latest pain management techniques and modern protocols to guarantee a stress-free experience from start to finish.</p>
+                </div>
+                <div style="background: linear-gradient(rgba(240, 248, 255, 0.88), rgba(240, 248, 255, 0.88)), url('/assets/images/service-box-bg.webp') center / cover no-repeat; padding: 40px; border-radius: 16px; text-align: center; border: 1px solid rgba(111, 147, 197, 0.3); box-shadow: 0 8px 30px rgba(0,0,0,0.08);">
+                    <i class="fas fa-{icon}" style="font-size: 4rem; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 class="inter" style="font-size: 1.4rem; font-weight: 600; color: var(--navy);">Advanced Care</h3>
+                    <p class="inter" style="font-size: 0.95rem; color: var(--navy); margin-top: 10px; font-weight: 500;">We follow international protocols for maximum safety and clinical success.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad bg-ice reveal">
+            <div class="container">
+                <h2 class="inter" style="font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 40px;">Types We Offer</h2>
+                <div class="types-grid">
+                    <div class="type-card card-hover">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3 class="inter" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">Standard {name}</h3>
+                        <p class="inter" style="color: var(--muted); font-size: 0.9rem;">Reliable, time-tested approach ensuring fundamental oral health restoration.</p>
+                    </div>
+                    <div class="type-card card-hover">
+                        <i class="fas fa-microscope"></i>
+                        <h3 class="inter" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">Advanced {name}</h3>
+                        <p class="inter" style="color: var(--muted); font-size: 0.9rem;">Utilizing digital scanning and laser precision for complex clinical cases.</p>
+                    </div>
+                    <div class="type-card card-hover">
+                        <i class="fas fa-star"></i>
+                        <h3 class="inter" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">Aesthetic {name}</h3>
+                        <p class="inter" style="color: var(--muted); font-size: 0.9rem;">Focused purely on visual harmony and crafting your perfect smile.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad bg-white reveal">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="inter" style="font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 40px;">Treatment Process</h2>
+                <div class="process-list">
+                    <div class="process-step">
+                        <div class="process-num inter">1</div>
+                        <h4 class="inter" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Detailed Consultation</h4>
+                        <p class="inter" style="color: var(--muted); font-size: 0.9rem;">We perform a thorough clinical examination and digital imaging to understand your exact requirements.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num inter">2</div>
+                        <h4 class="inter" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Custom Treatment Plan</h4>
+                        <p class="inter" style="color: var(--muted); font-size: 0.9rem;">Our specialists design a precise protocol tailored to you, explaining all steps and costs upfront.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num inter">3</div>
+                        <h4 class="inter" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Procedure Execution</h4>
+                        <p class="inter" style="color: var(--muted); font-size: 0.9rem;">The {name} is performed using advanced pain-management, ensuring a comfortable experience.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num inter">4</div>
+                        <h4 class="inter" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Aftercare & Recovery</h4>
+                        <p class="inter" style="color: var(--muted); font-size: 0.9rem;">We provide comprehensive post-treatment instructions and schedule follow-ups to monitor your progress.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad bg-ice reveal">
+            <div class="container">
+                <h2 class="inter" style="font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 40px;">Key Benefits</h2>
+                <ul class="benefits-list inter" style="max-width: 800px; margin: 0 auto;">
+                    <li><i class="fas fa-check-circle"></i> <span>Restores full functionality to your bite and jaw.</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Dramatically improves smile aesthetics and confidence.</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Prevents future dental complications and bone loss.</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Long-lasting, durable results using premium materials.</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Painless procedure with modern anesthetics.</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Customized completely to your facial structure.</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-pad bg-white reveal">
+            <div class="container" style="max-width: 800px; text-align: center;">
+                <h2 class="inter" style="font-size: 2rem; font-weight: 700; margin-bottom: 40px;">Frequently Asked Questions</h2>
+                <div style="text-align: left;">
+                    <details class="faq-row">
+                        <summary class="inter">Is {name} painful?</summary>
+                        <div class="faq-ans inter">No. We use advanced techniques and local anesthesia to ensure your complete comfort during {name}.</div>
+                    </details>
+                    <details class="faq-row">
+                        <summary class="inter">How much does {name} cost in Thanjavur?</summary>
+                        <div class="faq-ans inter">The cost varies depending on individual cases. Please schedule a consultation with our experts for a detailed and transparent treatment plan.</div>
+                    </details>
+                    <details class="faq-row">
+                        <summary class="inter">How long does the treatment take?</summary>
+                        <div class="faq-ans inter">Depending on the complexity, it can range from a single one-hour visit to multiple sessions over a few weeks. We will outline the timeline during your first visit.</div>
+                    </details>
+                    <details class="faq-row">
+                        <summary class="inter">Is it safe for children or older adults?</summary>
+                        <div class="faq-ans inter">Yes. Our specialist doctors carefully evaluate the medical history of every patient to ensure the procedure is 100% safe for their age group.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-strip reveal">
+            <div class="container">
+                <h2 class="inter" style="font-size:2rem; font-weight:700; margin-bottom:20px;">Ready to restore your smile?</h2>
+                <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+                    <a href="tel:+919894888736" class="btn" style="background:var(--white); color:var(--navy); font-weight:600; padding:12px 24px; border-radius:8px;"><i class="fas fa-phone" style="margin-right:8px;"></i> Call 9894888736</a>
+                    <a href="https://api.whatsapp.com/send?phone=919894888736&text=I'm+interested+in+{name}" class="btn" style="background:var(--whatsapp); color:var(--white); font-weight:600; padding:12px 24px; border-radius:8px;"><i class="fab fa-whatsapp" style="margin-right:8px; font-size:1.2rem;"></i> Book via WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-col footer-brand">
+                <a href="/" class="nav-logo">VELS DENTAL</a>
+                <div style="color: var(--mid-blue); font-size: 0.9rem; margin-top: 5px; margin-bottom: 20px;">Healthy Smiles for Every Individual</div>
+                <div style="font-size: 0.85rem; margin-bottom: 15px;">Anna Nagar Bus Stop, Next to BRS Super Market, Nanjikottai Road, Thanjavur – 613006</div>
+                <a href="tel:+919894888736" style="color: var(--mid-blue); display: block; margin-bottom: 5px;">9894888736</a>
+                <a href="tel:+918428828736" style="color: var(--mid-blue); display: block; margin-bottom: 5px;">8428828736</a>
+                <a href="mailto:velsdentalclinictanjore@gmail.com" style="color: var(--mid-blue); display: block; margin-bottom: 20px; font-size: 0.85rem; word-break: break-all;">velsdentalclinictanjore@gmail.com</a>
+                <a href="https://api.whatsapp.com/send?phone=919894888736" class="btn" style="background:#25D366; color:#fff; border-radius: 8px; padding: 10px 16px; font-size: 0.85rem; font-weight: 600;"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp Us</a>
+            </div>
+            <div class="footer-col">
+                <h4 class="inter">About</h4>
+                <ul>
+                    <li><a href="/about.html">About Clinic</a></li>
+                    <li><a href="/doctors.html">Our Doctors</a></li>
+                    <li><a href="/technology.html">Technology & Equipment</a></li>
+                    <li><a href="/index.html#reviews">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="inter">Services</h4>
+                <ul>
+                    <li><a href="/services/index.html">General Dentistry</a></li>
+                    <li><a href="/services/orthodontics.html">Orthodontics</a></li>
+                    <li><a href="/services/dental-implants.html">Dental Implants</a></li>
+                    <li><a href="/services/pediatric-dentistry.html">Pediatric Dentistry</a></li>
+                    <li><a href="/services/cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="inter">Legal</h4>
+                <ul>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-conditions.html">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <div>&copy; 2025 Vels Dental Clinic, Thanjavur. All Rights Reserved.</div>
+            <div>Dr. Balaji Velayutham — BDS · Implantologist · Certified Laser Dentist</div>
+        </div>
+        <div class="giant-wordmark">VELS DENTAL</div>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=919894888736&text=Hello%20Vels%20Dental%20Clinic!" target="_blank" class="wa-fab"><i class="fab fa-whatsapp"></i></a>
+    <button class="back-top"><i class="fas fa-chevron-up"></i></button>
+    <div class="mobile-sticky-bar">
+        <a href="tel:+919894888736"><i class="fas fa-phone"></i> Call</a>
+        <a href="https://api.whatsapp.com/send?phone=919894888736" target="_blank"><i class="fab fa-whatsapp" style="color:var(--whatsapp);"></i> WhatsApp</a>
+        <a href="/appointment.html?treatment={name}"><i class="far fa-calendar-alt"></i> Book</a>
+    </div>
+
+    <script src="/assets/js/main.js?v=111230" defer></script>
+</body>
+</html>
+"""
+
+def generate_pages():
+    services_dir = "services"
+    os.makedirs(services_dir, exist_ok=True)
+    
+    # Generate 12 sub-pages
+    for service in SERVICES:
+        filename = f"{service['id']}.html"
+        filepath = os.path.join(services_dir, filename)
+        html_content = HTML_TEMPLATE.format(
+            id=service["id"],
+            name=service["name"],
+            description=service["description"],
+            icon=service["icon"],
+            schema_type=service["schema_type"]
+        )
+        
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(html_content)
+            
+    print("Generated all 12 service files successfully.")
+
+if __name__ == "__main__":
+    generate_pages()
