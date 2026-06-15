@@ -689,7 +689,7 @@ details.faq-row[open] summary::after { content: '−'; }
   .mobile-sticky-bar { display: grid; }
   body { padding-bottom: 60px; }
   .wa-fab, .back-top { bottom: 72px; }
-  .footer-credits { padding-bottom: 70px; }
+  .footer-credits { padding-bottom: 120px; }
   .mid-cta-badge-top { right: 20px; }
   /* Mobile Image Fixes */
   .mid-cta-left { min-height: 400px; border-radius: 16px 16px 0 0 !important; }
