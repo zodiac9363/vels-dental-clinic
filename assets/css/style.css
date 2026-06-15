@@ -421,6 +421,25 @@ footer {
   line-height: 0.8;
 }
 
+.footer-credits {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+}
+.footer-credits a {
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-credits a:hover {
+    color: var(--primary);
+}
+
 /* Layout Utilities */
 .section-pad { padding: 80px 0; }
 .bg-ice { background: var(--ice); }
@@ -668,6 +687,7 @@ details.faq-row[open] summary::after { content: '−'; }
   .hamburger { display: block; }
   .top-ribbon { flex-direction: column; height: auto; padding: 8px 5%; gap: 4px; text-align: center; }
   .mobile-sticky-bar { display: grid; }
+  body { padding-bottom: 60px; }
   .wa-fab, .back-top { bottom: 72px; }
   .mid-cta-badge-top { right: 20px; }
   /* Mobile Image Fixes */
