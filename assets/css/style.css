@@ -658,6 +658,15 @@ details.faq-row[open] summary::after { content: '−'; }
 .benefits-list li i { color: var(--primary); margin-top: 4px; }
 
 /* CTA Strip */
+.service-hero-img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    height: 350px;
+    width: 100%;
+}
 .cta-strip { background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/cta_bg.png') center / cover no-repeat; padding: 80px 5%; text-align: center; color: var(--white); }
 .cta-strip h2 { color: var(--white); }
 
@@ -691,6 +700,7 @@ details.faq-row[open] summary::after { content: '−'; }
   .wa-fab, .back-top { bottom: 72px; }
   .footer-credits { padding-bottom: 120px; }
   .mid-cta-badge-top { right: 20px; }
+  .service-hero-img { height: 240px; }
   /* Mobile Image Fixes */
   .mid-cta-left { min-height: 400px; border-radius: 16px 16px 0 0 !important; }
   .hero-tile-1 { padding: 20px; grid-column: auto; grid-row: auto; min-height: 300px; }
